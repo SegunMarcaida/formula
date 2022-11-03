@@ -1,0 +1,39 @@
+@startuml
+class Operation implements Operand {
+-operand1:Operand
+-operand2:Operand
+-operator:Operator
++operate()
+isFunction() = true
+getValue(Map<variable, value>)
+getVariables():List<Variable>
+}
+
+Operation <-- Operator
+interface Operator{
+-value:String
+Calculate(Operand,Operand):Operand
+}
+interface Operand {
+isFunction():boolean
+getValue(Map<variable, value>)
+}
+
+class Number implements Operand{
+-value:Double
+getValue(Map<variable, value>)
+isOperation() = false
+}
+class Variable implements Operand{
+name:String
+getValue(Map<variable, value>)
+}
+class sum implements Operator{
+}
+class times implements Operator{
+}
+class div implements Operator{
+}
+class min implements Operator{
+}
+@enduml
